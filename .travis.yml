@@ -1,12 +1,12 @@
 # script:
 #   - "bundle exec rake neo4j:install['community-2.2.0-M02'] neo4j:start default --trace"
 language: ruby
-rvm:
-  -  2.6.5
-cache:
-  - bundler
-services:
-  - postgresql
+# rvm:
+#   -  2.6.5
+# cache:
+#   - bundler
+# services:
+#   - postgresql
 # before_script:
 #   - psql -c 'create database travis_ci_test;' -U postgres
 # # test:
