@@ -9,10 +9,10 @@ rvm:
 #   - postgresql
 # before_script:
 #   - psql -c 'create database travis_ci_test;' -U postgres
-# # test:
-#   adapter: postgresql
-#   database: demo_task_test
+# test:
+  # adapter: postgresql
+  # database: demo_task_test
 # before_script:
 #   - cp config/database.yml.travis config/database.yml
-# before_install:
-#   - gem install rake
+before_install:
+  - gem install rake
