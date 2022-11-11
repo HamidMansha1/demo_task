@@ -6,6 +6,7 @@ travis:
 language: ruby
 rvm:
   -  2.6.5
+#use skip_build in this project
 # cache:
 #   - bundler
 # services:
