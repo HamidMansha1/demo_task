@@ -15,6 +15,7 @@ rvm:
 #   - psql -c 'create database travis_ci_test;' -U postgres
 # test:
   # adapter: postgresql
+   # adapter: postgresql
   # database: demo_task_test
 # before_script:
 #   - cp config/database.yml.travis config/database.yml
