@@ -1,18 +1,28 @@
-script:
-  - "bundle exec rake neo4j:install['community-2.2.0-M02'] neo4j:start default --trace"
+travis:
+  enabled: true
+
+# script:
+#   - "bundle exec rake neo4j:install['community-2.2.0-M02'] neo4j:start default --trace"
 language: ruby
 rvm:
   -  2.6.5
-cache:
-  - bundler
-services:
-  - postgresql
-before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-test:
-  adapter: postgresql
-  database: demo_task_test
+  os:
+    - osx
+    - linux
+#use skip_build in this project
+# cache:
+#   - bundler
+# cache:
+#   - bundler
+# services:
+#   - postgresql
+# before_script:
+#   - psql -c 'create database travis_ci_test;' -U postgres
+# test:
+  # adapter: postgresql
+   # adapter: postgresql
+  # database: demo_task_test
 # before_script:
 #   - cp config/database.yml.travis config/database.yml
-# before_install:
-#   - gem install rake
+before_install:
+  - gem install rake
