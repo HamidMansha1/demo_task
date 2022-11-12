@@ -12,6 +12,8 @@ rvm:
 #use skip_build in this project
 # cache:
 #   - bundler
+# cache:
+#   - bundler
 # services:
 #   - postgresql
 # before_script:
