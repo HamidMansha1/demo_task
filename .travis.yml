@@ -26,3 +26,12 @@ rvm:
 #   - cp config/database.yml.travis config/database.yml
 before_install:
   - gem install rake
+
+
+deploy:
+  provider: releases
+  api_key: $TOKEN
+  file: "test"
+  skip_cleanup: true
+  on:
+    tags: false
