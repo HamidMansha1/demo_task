@@ -3,6 +3,7 @@
 language: ruby
 rvm:
   -  2.6.5
+install: skip
 script: true
 
   # before_script:
