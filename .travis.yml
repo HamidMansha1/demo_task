@@ -5,7 +5,7 @@ rvm:
   -  2.6.5
 script: true
 
- before_deploy:
+before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "HamidMansha1"
   - git config --local user.email "hamidmansha115@gmail.com"
