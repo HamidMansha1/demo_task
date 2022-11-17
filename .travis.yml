@@ -28,3 +28,11 @@ script: true
 #   skip_cleanup: true
 #   on:
 #     branch: main
+
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: main
