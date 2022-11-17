@@ -5,34 +5,10 @@ rvm:
   -  2.6.5
 script: true
 
-  # before_script:
-  # - psql -c "CREATE USER demo_task WITH PASSWORD 'DEMO_TASK_DATABASE_PASSWORD';" -U postgres
-# cache:
-#   - bundler
-# services:
-#   - postgresql
-# before_script:
-#   - psql -c 'create database travis_ci_test;' -U postgres
-# test:
-#   adapter: postgresql
-#   database: demo_task_test
-# before_script:
-#   - cp config/database.yml.travis config/database.yml
-# before_install:
-  # - gem install rake
-  #   - gem install rake
-
-# deploy:
-#   provider: releases
-#   api_key: "GITHUB OAUTH TOKEN"
-#   skip_cleanup: true
-#   on:
-#     branch: main
 
 deploy:
   provider: releases
   api_key: "GITHUB OAUTH TOKEN"
   skip_cleanup: true
   on:
-    tags: true
     branch: main
