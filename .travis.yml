@@ -5,12 +5,20 @@ rvm:
   -  2.6.5
 script: true
 
+# before_deploy:
+#   # Set up git user name and tag this commit
+#   - git config --local user.name "HamidMansha1"
+#   - git config --local user.email "hamidmansha115@gmail.com"
+#   - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+#   - git tag $TRAVIS_TAG
+
 before_deploy:
-  # Set up git user name and tag this commit
-  - git config --local user.name "HamidMansha1"
-  - git config --local user.email "hamidmansha115@gmail.com"
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG
+  if ! [[ $TRAVIS_TAG ]]; then
+    export TRAVIS_TAG="1.$TRAVIS_BUILD_NUMBER" &&
+    git config --local user.name "HamidMansha1" &&
+    git config --local user.email "hamidmansha115@gmail.com" &&
+    git tag "$TRAVIS_TAG" "$TRAVIS_COMMIT";
+  fi
 deploy:
   provider: releases
   api_key: "GITHUB OAUTH TOKEN"
