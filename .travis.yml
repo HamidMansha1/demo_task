@@ -22,9 +22,9 @@ script: true
   # - gem install rake
   #   - gem install rake
 
-deploy:
-  provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
-  skip_cleanup: true
-  on:
-    branch: main
+# deploy:
+#   provider: releases
+#   api_key: "GITHUB OAUTH TOKEN"
+#   skip_cleanup: true
+#   on:
+#     branch: main
