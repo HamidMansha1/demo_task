@@ -1,37 +1,20 @@
-# script:
-#   - "bundle exec rake neo4j:install['community-2.2.0-M02'] neo4j:start default --trace"
 language: ruby
 rvm:
-  -  2.6.5
-script: true
-
-# before_deploy:
-#   # Set up git user name and tag this commit
-#   - git config --local user.name "Hamid Mansha"
-#   - git config --local user.email "hamidmansha115@gmail.com"
-#   - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-#   - git tag $TRAVIS_TAG
-
-# before_deploy:
-#   if ! [[ $TRAVIS_TAG ]]; then
-#     export TRAVIS_TAG="1.$TRAVIS_BUILD_NUMBER" &&
-#     git config --local user.name "HamidMansha1" &&
-#     git config --local user.email "hamidmansha115@gmail.com" &&
-#     git tag "$TRAVIS_TAG" "$TRAVIS_COMMIT";
-#   fi
+- 2.6.5
+install: skip
+script:
+  - cat test.txt
 before_install:
-   openssl aes-256-cbc -K $encrypted_4ff9af955922_key -iv $encrypted_4ff9af955922_iv -in super_secrete.txt.enc -out super_secrete.txt -d
-    # secure: "UfaVorTAJ43Uu6Oqv2dpRT8wl8mXRt29Eitup+v6iDA4lYhaW4cixBa2CdE7vTILp7qSxfEdIHIFsogXasI6ZbdMI3OoVp82ATKcvTprj1IMISNt/e3skjD6AOMmbT870luoe9EJJD9QqcF303aRa28pWD/C7E2Hupww7ItE1MqAJiZoivNNtwqO7IWs1ePpFdS4wtQqQ2sp4cWPQlofR1Fg6NuFHafYh8jlkac3TPNXpsQZcnM14m1uNX90iPbnQvuJRmDrJuh1rZhYjbuIjl1eMa/Qz8LkGb/WG/NibotdNzQlv55BIQycnVKcUaRDcAMixjGs7bqh/fzf/ss9ApgAXWj7hCOI0xOjGYS5xNEKxp9inlN2l9BQ5HpqtJpsN3/WIdBmWWr9wKZrAweJBa061AMyIsmoJ9l4lTKy+s8H1UqCc7p+28ixQBTUlJXoO00yJ+OmXXKm7cIjpSp0oYuc19FcLsqLTFA2pF5lbtYSnGSOHAbVeFiZTs86AwnhW3hlHiV7slL6rx7tkH2w6Go6MnD3KQF5jZCT+L6x3iXpJpZGLj9f1+PElzBIKZpVxHfwjd7Wa9d3hsz7KIV9pFwyLWpwsaTQrM3K5LM6U/TC9ZsSU+4X2FU2hlG9RUt0YmaUpeASYHU61lKuA7PIOOVYth0q7sAXodsgxgWLyLs="
-  # openssl aes-256-cbc -K $encrypted_355e94ba1091_key -iv $encrypted_355e94ba1091_iv -in super_secret.txt.enc -out super_secret.txt -d
-  # puts "hellow world"
+- openssl aes-256-cbc -K $encrypted_4b6fcb2d521e_key -iv $encrypted_4b6fcb2d521e_iv
+  -in test.txt.enc -out test.txt -d
 deploy:
   provider: releases
-  api_key: $GITHUB_OAUTH_TOKEN
+  api_key: "$GITHUB_OAUTH_TOKEN"
   skip_cleanup: true
   file: README.md
   branches:
-      only:
-      - main
-      - /v\d+\.\d+[a-z]/
+    only:
+    - main
+    - "/v\\d+\\.\\d+[a-z]/"
   on:
     tags: true
