@@ -2,4 +2,4 @@ language: shell
 
 install: skip
 script:
-  - cat Readme.md
+  - cat README.md
